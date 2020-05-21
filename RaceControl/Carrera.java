@@ -2,7 +2,13 @@
 package RaceControl;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+
+
+
 
 //import java.util.ArrayList;
 //import java.util.List;
@@ -11,19 +17,13 @@ import java.util.List;
 
 public abstract class Carrera {
 	
-/*
-	//int [] podio=new int [3];
-	List<Coche>resultadoscarrera=new ArrayList <Coche>(); // hay qye crear un array list para guardar la clasificacion de cada coche y el podio no hace fata porque ya seria los 3 primeros de este array
-	List<Equipo>equiposparticipantes=new ArrayList <Equipo>();
-	List<Coche>cochesparticipantes=new ArrayList <Coche>();
-*/	
-	
+
 //atributos
 	private String nombreCarrera;
 	protected int duracionCarrera;
 	protected int intevalodetiempo;
 	protected List <Coche> cochesparticipantes; // se definen los arrays coches
-	protected Equipo[] equipos;// se definen los arrays Equipos
+	
 	
 //creamos el constructor de la clase Carrera
 	public Carrera(String nombreCarrera, int duracionCarrera) {
@@ -32,6 +32,7 @@ public abstract class Carrera {
 		this.intevalodetiempo=1; // será 1 hora el intervalo para saber la distancia
 		this.cochesparticipantes=new ArrayList<Coche>(); //array  lista de con los coches que participen
 		//this.equipos=new Equipo [3]; // array con los equipos que participen	
+		
 	}
 	
 	
@@ -40,11 +41,17 @@ public abstract class Carrera {
 		Coche[] podium=new Coche [3]; // es el podium de como van a quedar los coches que son 3
 	}
 	
-	
-	
+		
 //creamos el metodo abtracto que es el de disputar carrera
 	public abstract void disputarcarrera(); // hace el calculo de la carrera
 
+	
+//metodo que va a comparar de mayor a menor km 	
+	protected Comparator distanciaTotal = new Comparator<Coche>() {
+        public int compare(Coche car1, Coche car2) {
+            return (car1.getDistanciaTotal() - car2.getDistanciaTotal()) * -1;
+        }
+    };
 
 
 	/**
@@ -67,25 +74,7 @@ public abstract class Carrera {
 		
 	}
 
-
-
-	/**
-	 * @return the equipos
-	 */
-	public Equipo[] getEquipos() {
-		return equipos;
-	}
-
-
-	/**
-	 * @param equipos the equipos to set
-	 */
-	public void setEquipos(Equipo[] equipos) {
-		this.equipos = equipos;
-	}
-
-
-	/**
+/**
 	 * @return the nombreCarrera
 	 */
 	public String getNombreCarrera() {

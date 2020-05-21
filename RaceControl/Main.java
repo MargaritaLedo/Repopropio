@@ -11,7 +11,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 /*	
- //probamos la clase coche
+ //1.-probamos la clase coche
 		Coche coche1=new Coche("ferrari", "360");
 		Coche coche2=new Coche("mercedes", "slk");
 
@@ -24,17 +24,23 @@ public class Main {
 			System.out.println("coche2 "+ coche2.getDistanciaTotal());
 			
 		}
-*/
-		
-//probamos la clase carrera estandar. creamos la carrera Rallymondoñedo, llamamos a los coches que van a aparticipar y que estar cargados en la clase CargaDeDatos y ejecutamos el metodo disputarcarrera.	
+
+	
+//2.-probamos la clase carrera estandar. creamos la carrera Rallymondoñedo, llamamos a los coches que van a aparticipar y que estar cargados en la clase CargaDeDatos y ejecutamos el metodo disputarcarrera.	
 // lo que nos va a sacar es para cada intervalo de tiempo (1 hora) cuantos km llevan recorridos cada coche, los datos son acumulativos , entonces los km que lleven en la tercera (y ultima) hora seria la clasificación fina de ellos.		
 	
 		Carrera Rallymondoñedo =new CarreraEstandar("Rallymondoñedo",3);
 		Rallymondoñedo.setCochesParticipantes(CargaDeDatos.cochesparticipantes());
 		Rallymondoñedo.disputarcarrera();
 	
+*/	
+	//	3.-probamos la clase torneos con las carreras estandar 
+
+		Torneo CopaMariña=new Torneo("CopaMariña");
+		CopaMariña.setlistadecarreras(CargaDeDatos.listadecarreras());
+		CopaMariña.disputartorneo();
 		
-		
+
 	}
 
 }

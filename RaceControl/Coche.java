@@ -1,18 +1,20 @@
 package RaceControl;
 
-public class Coche implements Comparable<Coche> {
+public class Coche  {
 		private String marca;
 		private String modelo;
 		private int velocidad_maxima;//en km/h
 		private int distanciaIntervalo;
 		private int distanciaTotal;
-		private Equipo equipo;
+		
+		private int puntostorneo;
 		
 // se crea el constructor de coche pasandole parámetros.		
 		public Coche (String marca, String modelo) {
 			this.marca=marca;
 			this.modelo=modelo;
-			this.velocidad_maxima=200;	//200 km/hora			
+			this.velocidad_maxima=200; //200 km/hora	
+			this.puntostorneo = 0;		
 		}
 
 // El metodo calcular distancia lo que hace es por que calcula un velocidad aletoria por cada intervalo de tiempo, 1 hora, entonces si le asigna 50 km/horas esa es la distancia 50 y se la suma a distancia total
@@ -21,9 +23,16 @@ public class Coche implements Comparable<Coche> {
 			distanciaTotal=distanciaTotal+distanciaIntervalo;
 		}
 
-		public int compareTo(Coche coche){
+		/*public int compareTo(Coche coche){
 			return 1;
+		}*/
+//metodo to string para que pinte bien los atributos 		
+		@Override
+		public String toString() {
+			return "\n El coche " + marca  + " modelo=" + modelo + " ha recocorrido una distancia total de " + distanciaTotal+ " km  " ;
+		 
 		}
+
 		
 		/**
 		 * @return the marca
@@ -90,22 +99,6 @@ public class Coche implements Comparable<Coche> {
 
 
 		/**
-		 * @return the equipo
-		 */
-		public Equipo getEquipo() {
-			return equipo;
-		}
-
-
-		/**
-		 * @param equipo the equipo to set
-		 */
-		public void setEquipo(Equipo equipo) {
-			this.equipo = equipo;
-		}
-
-
-		/**
 		 * @return the distanciaTotal
 		 */
 		public int getDistanciaTotal() {
@@ -121,6 +114,22 @@ public class Coche implements Comparable<Coche> {
 		public void setDistanciaTotal(int distanciaTotal) {
 			this.distanciaTotal = distanciaTotal;
 		}
+
+		/**
+		 * @return the puntostorneo
+		 */
+		public int getPuntostorneo() {
+			return puntostorneo;
+		}
+
+		/**
+		 * @param puntostorneo the puntostorneo to set
+		 */
+		public void setPuntostorneo(int puntostorneo) {
+			this.puntostorneo = this.puntostorneo +  puntostorneo;
+		}
+		
+		
 
 	
 }//llave final de la clase

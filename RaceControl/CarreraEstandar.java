@@ -14,16 +14,17 @@ public class CarreraEstandar extends Carrera {
 	
 	public void disputarcarrera() {
 		while (intevalodetiempo <= duracionCarrera) {
-			System.out.println("intervalo de carrera: "+ intevalodetiempo );
+			System.out.println("Nº de la vuelta : "+ intevalodetiempo );
 			for (int i=0; i<cochesparticipantes.size();i++) {
 				cochesparticipantes.get(i).calculardistancia();
-		System.out.println(" el coche: " + cochesparticipantes.get(i).getMarca() +" distancia recorrida: "+ cochesparticipantes.get(i).getDistanciaTotal());
+		//System.out.println(" el coche: " + cochesparticipantes.get(i).getMarca() +" distancia recorrida: "+ cochesparticipantes.get(i).getDistanciaTotal());
 			}
 			intevalodetiempo++;	
-			Collections.sort(cochesparticipantes);
-			for (Coche aux:cochesparticipantes) {
-				System.out.println(aux);
-			}
+			
+			
+			Collections.sort(cochesparticipantes,distanciaTotal);
+			System.out.println(cochesparticipantes);
+			
 		} 
 	}
 	
@@ -31,5 +32,6 @@ public class CarreraEstandar extends Carrera {
 
 	
 	}//llave final de la clase
+
 
 

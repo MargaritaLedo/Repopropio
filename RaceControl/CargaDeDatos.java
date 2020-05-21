@@ -15,6 +15,25 @@ public class CargaDeDatos {
 		  cochesparticipantes.add(new Coche("Mercedes", "SLK"));
 		  return cochesparticipantes;
 	}
+// metodo de la carga de la lista de carrera y un FOR para que ya cargue los coches en las carreras.	
+	public static List <CarreraEstandar> listadecarreras(){
+		
+	
+		List<Coche> cochesCarreras = new ArrayList<Coche>();
+		cochesCarreras.addAll(cochesparticipantes());
+		 
+		List<CarreraEstandar> listadecarreras = new ArrayList<CarreraEstandar>();
+		 listadecarreras.add(new CarreraEstandar("carreraEstandar1", 3));
+		 listadecarreras.add(new CarreraEstandar("carreraEstandar2", 3));
+		 
+		for (CarreraEstandar carrera : listadecarreras) {
+			carrera.setCochesParticipantes(cochesCarreras);
+		}
+		 
+		  return listadecarreras;
+	}
+	
+	
 	
 	}
 	
